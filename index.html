@@ -1,292 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman - Full Stack Developer</title>
-    
-    <!-- Google Fonts -->
+    <title>Aman - Developer Portfolio</title>
+    <meta name="description"
+        content="Aman's developer portfolio - Full Stack Developer, AI/ML Enthusiast, Open Source Contributor.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Loading Screen -->
-    <!-- <div class="loading-overlay" id="loading">
-        <div class="loading-spinner"></div>
-    </div> -->
 
-    <!-- Animated Background -->
-    <div class="bg-animation"></div>
-    
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas"></canvas>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Scroll Orb (Storytelling element) -->
+    <div class="scroll-track" id="scrollTrack"></div>
+    <div class="scroll-orb" id="scrollOrb"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <span class="loader-text" id="loaderText"><span class="loader-cursor"></span></span>
+        <div class="loader-bar">
+            <div class="loader-bar-inner" id="loaderBar"></div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Aman Tebriwal Dev</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">Aman.dev</a>
+            <button class="nav-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#milestones">Milestones</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero -->
+    <section id="hero">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-blob"></div>
+        <div class="floating-icons" id="floatingIcons"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="gradient-text">Aman</span></h1>
-            <p class="hero-subtitle">I am a passionate 
-                  <span id="element"></span>
-             <span id="typed-text" class="typed-text"></span></p>
+            <p class="hero-greeting">// hello, world</p>
+            <h1 class="hero-name">Aman Tebriwal</h1>
+            <p class="hero-roles">I'm a <span class="typed" id="typedText"></span><span class="cursor-blink">|</span>
+            </p>
+            <p class="hero-subtitle">Building intelligent systems & scalable web experiences.</p>
             <div class="hero-buttons">
-                <a href="https://github.com/amantebriwal4321" class="btn btn-primary">
-                    <i class="fab fa-github"></i>
-                    View GitHub
+                <a href="https://github.com/amantebriwal4321" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary"><i class="fab fa-github"></i> View GitHub</a>
+                <a href="Aman_Tebriwal_Resume_file.pdf" class="btn btn-outline" onclick="handleResumeClick(event)">
+                    <i class="fas fa-download"></i> Download Resume
                 </a>
-                <a href="public/Resume Tech.pdf" download="Aman's Resume" class="btn btn-secondary">
-                    <i class="fas fa-download"></i>
-                    Download Resume
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title fade-in">About Me</h2>
-        <div class="about-content">
-            <div class="about-text slide-in-left">
-                <p>I'm a passionate Full Stack Developer with expertise in modern web technologies. I love creating beautiful, functional, and user-friendly applications that solve real-world problems.</p>
-                <p>With a strong foundation in both frontend and backend development, I enjoy working on challenging projects that push the boundaries of what's possible on the web.</p>
-            </div>
-            <div class="skills-grid slide-in-right">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js-square"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Database</h3>
-                    
-                </div>
-                 <div class="skill-card">
-                    <i class="fas fa-python"></i>
-                    <h3>Python</h3>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="experience-container">
-            <h2 class="section-title fade-in">Work Experience</h2>
+    <!-- About -->
+    <section id="about">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">01 // About</p>
+                <h2 class="section-title">The <span class="accent">Developer</span> Behind The Code</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-story reveal">
+                    <p>I'm a passionate Full Stack Developer with expertise in modern web technologies. I love creating
+                        beautiful, functional, and user-friendly applications that solve real-world problems.</p>
+                    <p>With a strong foundation in both frontend and backend development, I enjoy working on challenging
+                        projects that push the boundaries of what's possible on the web.</p>
+                    <div class="about-motto">"I don't just write code. I craft experiences."</div>
+                </div>
+                <div class="skills-wrap reveal">
+                    <h3>Tech I Work With</h3>
+                    <div class="skills-grid">
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">Node.js</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">Git & GitHub</span>
+                        <span class="skill-pill">OpenCV</span>
+                        <span class="skill-pill">Machine Learning</span>
+                        <span class="skill-pill">IoT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">02 // Experience</p>
+                <h2 class="section-title">My <span class="accent">Journey</span> So Far</h2>
+            </div>
             <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Full Stack Developer</h3>
-                        <p class="timeline-date">2023 - Present</p>
-                        <p>Developed and maintained web applications using React, Node.js, and MongoDB. Implemented responsive designs and optimized performance for better user experience.</p>
-                    </div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">React.js Developer</h3>
-                        <p class="timeline-date">2022 - 2023</p>
-                        <p>Built interactive user interfaces using React.js and modern JavaScript. Collaborated with design teams to implement pixel-perfect designs.</p>
-                    </div>
-                    <div class="timeline-icon">
-                        <i class="fab fa-react"></i>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-pen-ruler"></i> UI/UX Developer Intern</h3>
+                        <p> Experienced to Work closely with design teams to craft
+                            wireframes, prototypes, and user flows - learning that great products are felt before they
+                            are seen.</p>
                     </div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Frontend Developer</h3>
-                        <p class="timeline-date">2021 - 2022</p>
-                        <p>Created responsive web applications using HTML5, CSS3, and JavaScript. Focused on user experience and cross-browser compatibility.</p>
-                    </div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title fade-in">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card fade-in">
-                <div class="project-image">
-                    <i class="game"><img src="public/game.png" alt=""></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Simon Game</h3>
-                    <p class="project-description">A web-based memory game where players repeat an increasing sequence of colors and sounds. Built using HTML, CSS, and JavaScript, the game tests focus and memory with interactive visuals and smooth gameplay</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://amantebriwal4321.github.io/Simon-Game/">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-code"></i> Full Stack Developer</h3>
+                        <p>Grew into building complete web experiences - from architecting REST APIs with Node.js and
+                            MongoDB to designing fluid React frontends. Shipping features that real users interact with
+                            every day.</p>
                     </div>
                 </div>
-            </div>
-            <div class="project-card fade-in">
-                <div class="project-image">
-                    <i class="project2"><img src="public/project2new.jpg" alt=""></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">SignNova</h3>
-                    <p class="project-description">An AI-based sign language detection model that translates gestures into text or speech, enabling smoother communication for the hearing and speech impaired.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Rest API</span>
-                        <span class="tech-tag">Open CV</span>
-                        <span class="tech-tag">Web-Sockets</span>
-                        <span class="tech-tag">Axios</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="public/WhatsApp Video 2025-03-29 at 10.18.07_ec72ad9c.mp4" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            <buton>Live demo</buton>
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-brain"></i> AI/ML Developer</h3>
+                        <p>Ventured into the world of intelligent systems - training models, working with computer
+                            vision, and integrating AI capabilities into web applications. Exploring where data meets
+                            decision.</p>
                     </div>
                 </div>
-            </div>
-            <div class="project-card fade-in">
-                <div class="project-image">
-                    <i class="project-3"><img src="public/images-removebg-preview (3).png" alt="fab fa-code"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Currency Converter</h3>
-                    <p class="project-description">A user-friendly web application that enables quick and accurate currency conversions between multiple international currencies, with real-time exchange rate updates</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">API'S</span>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3><i class="fab fa-github-alt"></i> Open Source Contributor</h3>
+                        <p>Believe in building in public. Actively contribute to open source projects, raise issues,
+                            write documentation, and collaborate with developers across the globe.</p>
                     </div>
-                    <div class="project-links">
-                        <a href="https://amantebriwal4321.github.io/Currency-Converter/" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-rocket"></i> Freelancer</h3>
+                        <p>Taken on independent projects - from client websites to custom automation tools. Managing
+                            the full cycle from requirement gathering to deployment, solo.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="fade-in">I'm always interested in new opportunities and exciting projects. Let's connect!</p>
-            
-            <form class="contact-form fade-in">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">03 // Projects</p>
+                <h2 class="section-title">Things I've <span class="accent">Built</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <img src="public/project2new.jpg" alt="SignNova Project">
+                    </div>
+                    <div class="project-body">
+                        <h3>SignNova</h3>
+                        <p>An AI-based sign language detection model that translates gestures into text or speech,
+                            enabling smoother communication for the hearing and speech impaired.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React.js</span><span class="project-tag">Python</span><span
+                                class="project-tag">OpenCV</span><span class="project-tag">WebSockets</span><span
+                                class="project-tag">REST API</span><span class="project-tag">Axios</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="public/WhatsApp Video 2025-03-29 at 10.18.07_ec72ad9c.mp4" class="live"><i
+                                    class="fas fa-play"></i> Demo</a>
+                            <a href="https://github.com/amantebriwal4321" target="_blank" rel="noopener noreferrer"
+                                class="github"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <div class="placeholder-icon"><i class="fas fa-leaf"></i></div>
+                    </div>
+                    <div class="project-body">
+                        <h3>GreenChain - IOT Based System</h3>
+                        <ul>
+                            <li>Engineered an end-to-end IoT waste monitoring system using smart bin sensors that
+                                streams real-time fill-level data to an analytics dashboard.</li>
+                            <li>Reduced simulated overflow incidents by optimizing pickup scheduling through live sensor
+                                alerts.</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span><span class="project-tag">Sensors</span><span
+                                class="project-tag">Backend</span><span class="project-tag">Dashboard</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://greenchain-hero.netlify.app/" target="_blank" rel="noopener noreferrer"
+                                class="live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/amantebriwal4321/greenchain-conserve" target="_blank"
+                                rel="noopener noreferrer" class="github"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <div class="placeholder-icon"><i class="fas fa-chart-line"></i></div>
+                    </div>
+                    <div class="project-body">
+                        <h3>StackRadar - AI Tech Trend Platform</h3>
+                        <ul>
+                            <li>AI-driven platform that scrapes GitHub trending repos and developer forums to surface
+                                emerging technology trends.</li>
+                            <li>Implemented NLP-based categorization to cluster trends by domain (Web, AI, DevOps).</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span><span class="project-tag">Web Scraping</span><span
+                                class="project-tag">AI/NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="badge-soon">🚀 Coming Soon</span>
+                            <a href="https://github.com/amantebriwal4321/StackRadar" target="_blank"
+                                rel="noopener noreferrer" class="github"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Message
-                </button>
-            </form>
+            </div>
+        </div>
+    </section>
 
-            <div class="social-links fade-in">
-                <a href="https://github.com/amantebriwal4321" class="social-link">
-                    <i class="fab fa-github"></i>
+    <!-- Milestones -->
+    <section id="milestones">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">04 // Milestones</p>
+                <h2 class="section-title">Badges of <span class="accent">Honor</span></h2>
+            </div>
+            <div class="milestones-grid">
+                <!-- Card 1: Internships — opens modal with PDF -->
+                <div class="milestone-card reveal" data-cert-title="Internships"
+                    data-cert-desc="Professional Certification" data-cert-img="public/Internship.pdf"
+                    data-cert-link="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🎓</div>
+                    <h4>Internships</h4>
+                    <p>Professional Certification</p>
+                    <span class="cert-proof">View Proof →</span>
+                </div>
+
+                <!-- Card 2: Hackathon — opens modal with image -->
+                <div class="milestone-card reveal" data-cert-title="Hackathons" data-cert-desc="Competition Achievement"
+                    data-cert-img="public/hackathon.png"
+                    data-cert-link="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🏆</div>
+                    <h4>Hackathons</h4>
+                    <p>Competition Achievement</p>
+                    <span class="cert-proof">View Proof →</span>
+                </div>
+
+                <!-- Card 3: Open Source — opens modal with image -->
+                <div class="milestone-card reveal" data-cert-title="Open Source Contributor"
+                    data-cert-desc="Active Contributor" data-cert-img="public/opensource.png"
+                    data-cert-link="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🔀</div>
+                    <h4>Open Source Contributor</h4>
+                    <p>Top contributor in open source programs</p>
+                    <span class="cert-proof">View Proof →</span>
+                </div>
+
+                <!-- Card 4: MUNs — opens modal with image -->
+                <div class="milestone-card reveal" data-cert-title="MUNs and Debates (National Level)"
+                    data-cert-desc="Achievement" data-cert-issuer="National Level" data-cert-img="public/muns.png"
+                    data-cert-link="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🎨</div>
+                    <h4>MUNs and Debates (National Level)</h4>
+                    <p>Achievement</p>
+                    <span class="cert-proof">View Proof →</span>
+                </div>
+
+                <!-- Card 5: Full Stack — NO modal, redirect to LinkedIn -->
+                <div class="milestone-card reveal"
+                    data-cert-redirect="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🎓</div>
+                    <h4>Full Stack Web Development</h4>
+                    <p>Professional Certification</p>
+                    <span class="cert-proof">View on LinkedIn →</span>
+                </div>
+
+                <!-- Card 6: ML — NO modal, redirect to LinkedIn -->
+                <div class="milestone-card reveal"
+                    data-cert-redirect="https://www.linkedin.com/in/aman-tebriwal-67855b354/">
+                    <div class="milestone-icon">🤖</div>
+                    <h4>Machine Learning with Python</h4>
+                    <p>Professional Certification</p>
+                    <span class="cert-proof">View on LinkedIn →</span>
+                </div>
+
+                <!-- Card 7: Projects — NO modal, redirect to GitHub -->
+                <div class="milestone-card reveal" data-cert-redirect="https://github.com/amantebriwal4321">
+                    <div class="milestone-icon">🚀</div>
+                    <h4>5+ Live Projects Deployed</h4>
+                    <p>Shipped & Running in Production</p>
+                    <span class="cert-proof">View on GitHub →</span>
+                </div>
+            </div>
+            <p class="more-soon reveal">✨ More coming soon...</p>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div class="cert-modal-overlay" id="certModal">
+        <div class="cert-modal">
+            <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times"></i></button>
+            <div class="cert-modal-media" id="certModalMedia">
+                <img id="certModalImg" src="" alt="Certificate">
+            </div>
+            <div class="cert-modal-info">
+                <h3 id="certModalTitle"></h3>
+                <p id="certModalDesc"></p>
+                <span class="cert-modal-issuer" id="certModalIssuer"></span>
+                <a id="certModalLink" href="" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary cert-modal-btn">
+                    <i class="fas fa-external-link-alt"></i> View Full Certificate
                 </a>
-                <a href="https://www.linkedin.com/in/aman-tebriwal-67855b354/" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <!-- <a href="https://twitter.com/aman" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a> -->
-                <!-- <a href="mailto:aman@example.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Socials -->
+    <section id="socials">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">05 // Connect</p>
+                <h2 class="section-title">Find Me In <span class="accent">The Wild</span></h2>
+            </div>
+            <div class="socials-grid">
+                <a href="https://github.com/amantebriwal4321" target="_blank" rel="noopener noreferrer"
+                    class="social-tile reveal"><i class="fab fa-github"></i><span
+                        class="social-label">GitHub</span><span class="social-sub">See my code</span></a>
+                <a href="https://www.linkedin.com/in/aman-tebriwal-67855b354/" target="_blank" rel="noopener noreferrer"
+                    class="social-tile reveal"><i class="fab fa-linkedin"></i><span
+                        class="social-label">LinkedIn</span><span class="social-sub">Let's connect</span></a>
+                <a href="https://x.com/TebriwalAman" target="_blank" rel="noopener noreferrer"
+                    class="social-tile reveal"><i class="fab fa-x-twitter"></i><span class="social-label">X /
+                        Twitter</span><span class="social-sub">Follow my journey</span></a>
+                <a href="mailto:amantebriwal104@gmail.com" class="social-tile reveal"><i
+                        class="fas fa-envelope"></i><span class="social-label">Email</span><span class="social-sub">Drop
+                        a message</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA (replaces form) -->
+    <section id="contact">
+        <div class="section-container">
+            <div class="reveal">
+                <p class="section-label">06 // Contact</p>
+                <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+            </div>
+            <div class="contact-cta reveal">
+                <p class="contact-cta-text">Let's build something meaningful together.</p>
+                <p class="contact-cta-sub">Got an idea, a project, or just want to say hello? I'm always open to new
+                    opportunities and collaborations.</p>
+                <div class="contact-cta-buttons">
+                    <a href="mailto:amantebriwal104@gmail.com" class="cta-btn cta-btn-primary">
+                        <i class="fas fa-envelope"></i> <span>Email Me</span>
+                    </a>
+                    <a href="https://github.com/amantebriwal4321" target="_blank" rel="noopener noreferrer"
+                        class="cta-btn">
+                        <i class="fab fa-github"></i> <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aman-tebriwal-67855b354/" target="_blank"
+                        rel="noopener noreferrer" class="cta-btn">
+                        <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Aman. All rights reserved. Built with ❤️ and lots of ☕</p>
+        <p>&copy; 2025 Aman. Crafted with code, curiosity & caffeine ☕</p>
     </footer>
 
-    <!-- Scripts -->
-     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-    var typed = new Typed('#element', {
-      strings: ['Full Stack Developer', 'Graphics Designer','React.js Developer', 'JavaScript Enthusiast', 'Open Source Contributor'],
-      typeSpeed: 50,
-    });
-  </script>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="app.js"></script>
 </body>
+
 </html>
